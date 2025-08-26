@@ -16,7 +16,15 @@
 # ii. C 3
 
 
-nsamples <- 1000
+nsamples <- 10000
+c1 <- 0
+c2 <- 0
+c3 <- 0
+c4 <- 0
+c1m <- 0
+c2m <- 0
+c3m <- 0
+c4m <- 0
 qtdManutencao <- 0
 qtdSemManutencao <- 0
 qtdDefeitoSemManutencao <- 0
@@ -32,13 +40,16 @@ for (i in 1:nsamples) {
   
   if (manutencao == "s") {
     qtdManutencao <- qtdManutencao + 1
-    defeito <- sample(c("n","c1","c2","c3","c4"), 1, prob = c(0.8,0.04,0.04,0.06,0.06))
-    if (defeito != "n") {
+    defeitoc1 <- sample(c("n","s"), 1, prob = c(0.96,0.04))
+    defeitoc2 <- sample(c("n","s"), 1, prob = c(0.96,0.04))
+    defeitoc3 <- sample(c("n","s"), 1, prob = c(0.97,0.03))
+    defeitoc4 <- sample(c("n","s"), 1, prob = c(0.97,0.03))
+    if (defeitoc1 == "s" | defeitoc2 == "s" | defeitoc3 == "s" | defeitoc4 == "s") {
       qtdDefeitoComManutencao<-qtdDefeitoComManutencao+1
-      if (defeito == "c3") {
+      if (defeitoc3 == "s") {
         qtdDefeitoComManutencaoc3 <- qtdDefeitoComManutencaoc3 + 1
       }
-      else if (defeito == "c1") {
+      if (defeitoc1 == "s") {
         qtdDefeitoComManutencaoc1 <- qtdDefeitoComManutencaoc1 + 1
       }
     }
@@ -46,13 +57,16 @@ for (i in 1:nsamples) {
   
   else {
     qtdSemManutencao <- qtdSemManutencao + 1
-    defeito <- sample(c("n","c1","c2","c3","c4"), 1, prob = c(0.86,0.04,0.04,0.03,0.03))
-    if (defeito != "n") {
+    defeitoc1 <- sample(c("n","s"), 1, prob = c(0.96,0.04))
+    defeitoc2 <- sample(c("n","s"), 1, prob = c(0.96,0.04))
+    defeitoc3 <- sample(c("n","s"), 1, prob = c(0.94,0.06))
+    defeitoc4 <- sample(c("n","s"), 1, prob = c(0.94,0.06))
+    if (defeitoc1 == "s" | defeitoc2 == "s" | defeitoc3 == "s" | defeitoc4 == "s") {
       qtdDefeitoSemManutencao<-qtdDefeitoSemManutencao+1
-      if (defeito == "c3") {
+      if (defeitoc3 == "s") {
         qtdDefeitoSemManutencaoc3 <- qtdDefeitoSemManutencaoc3 + 1
       }
-      else if (defeito == "c1") {
+      if (defeitoc1 == "s") {
         qtdDefeitoSemManutencaoc1 <- qtdDefeitoSemManutencaoc1 + 1
       }
     }
