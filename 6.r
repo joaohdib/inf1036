@@ -15,19 +15,6 @@ for (j in 1:nsamples) {
         result <- vetor[i]
       }
     }
-    if (result == "cara") {
-      qtdC <- qtdC + 1
-    }
-    else if (result == "coroa") {
-      qtdCo <- qtdCo + 1
-    }
-    
-    else {
-      qtdSla <- qtdSla + 1
-    }
     print(result)
     }
   }
-
-
-
